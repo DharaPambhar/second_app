@@ -64,27 +64,27 @@ class _MyStopWatchState extends State<MyStopWatch> {
                 ElevatedButton(
                     style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.green),
+                            WidgetStateProperty.all<Color>(Colors.green),
                         foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white)),
+                            WidgetStateProperty.all<Color>(Colors.white)),
                     onPressed: _startTimer,
                     child: const Text("Start")),
                 const SizedBox(width: 20),
                 ElevatedButton(
                     style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.red),
+                            WidgetStateProperty.all<Color>(Colors.red),
                         foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white)),
+                            WidgetStateProperty.all<Color>(Colors.white)),
                     onPressed: _stopTimer,
                     child: const Text("Stop")),
                 SizedBox(width: 20),
-                IconButton(
+                IconButton( 
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.blue),
+                          WidgetStateProperty.all<Color>(Colors.blue),
                       foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
+                          WidgetStateProperty.all<Color>(Colors.white)),
                   onPressed: null,
                   icon: const Icon(Icons.start),
                 )
