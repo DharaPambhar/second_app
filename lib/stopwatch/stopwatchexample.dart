@@ -10,9 +10,9 @@ class MyStopWatch extends StatefulWidget {
 
 class _MyStopWatchState extends State<MyStopWatch> {
   int seconds = 0;
+  int milliseconds = 0;
   late Timer timer;
   bool isRunning = false;
-  int milliseconds = 0;
   void _startTimer() {
     if (!isRunning) {
       isRunning = true;
@@ -42,55 +42,58 @@ class _MyStopWatchState extends State<MyStopWatch> {
     timer = Timer.periodic(const Duration(milliseconds: 100), _onTick);
   }
 
+  // String secondstotext() => seconds <= 1 ? '1 second' : '$seconds seconds';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Stopwatch Example'),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Text(
-                secondstotext(milliseconds),
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
+      appBar: AppBar(title: const Text('Stopwatch Example')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Text(
+              secondstotext(milliseconds),
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStateProperty.all<Color>(Colors.green),
-                        foregroundColor:
-                            WidgetStateProperty.all<Color>(Colors.white)),
-                    onPressed: _startTimer,
-                    child: const Text("Start")),
-                const SizedBox(width: 20),
-                ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStateProperty.all<Color>(Colors.red),
-                        foregroundColor:
-                            WidgetStateProperty.all<Color>(Colors.white)),
-                    onPressed: _stopTimer,
-                    child: const Text("Stop")),
-                SizedBox(width: 20),
-                IconButton( 
-                  style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all<Color>(Colors.blue),
-                      foregroundColor:
-                          WidgetStateProperty.all<Color>(Colors.white)),
-                  onPressed: null,
-                  icon: const Icon(Icons.start),
-                )
-              ],
-            )
-          ],
-        ));
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all<Color>(Colors.green),
+                  foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+                ),
+                onPressed: _startTimer,
+                child: const Text("Start"),
+              ),
+              const SizedBox(width: 20),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all<Color>(Colors.red),
+                  foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+                ),
+                onPressed: _stopTimer,
+                child: const Text("Stop"),
+              ),
+              SizedBox(width: 20),
+              IconButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all<Color>(Colors.blue),
+                  foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+                ),
+                onPressed: (){
+                  setState(() {
+                    milliseconds = 0;
+                  });
+                },
+                icon: const Icon(Icons.start),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
