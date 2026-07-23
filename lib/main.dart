@@ -172,21 +172,41 @@
 // }
 
 
-import 'package:flutter/material.dart';
-import 'package:second_app/stopwatch/stopwatchexample.dart';
+// import 'package:flutter/material.dart';
+// import 'package:second_app/stopwatch/stopwatchexample.dart';
 
-void main() {
-  runApp(const StopwatchExample());
+// void main() {
+//   runApp(const StopwatchExample());
+// }
+
+// class StopwatchExample extends StatelessWidget {
+//   const StopwatchExample({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: MyStopWatch(),
+//     );
+//   }
+// }
+
+
+import 'package:flutter/material.dart';
+import 'package:second_app/screens/todo_screen.dart';
+
+void main(){
+  runApp(const TodoApp());
 }
 
-class StopwatchExample extends StatelessWidget {
-  const StopwatchExample({super.key});
+class TodoApp extends StatelessWidget {
+  const TodoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyStopWatch(),
+      home: TodoScreen(),
+      debugShowCheckedModeBanner: false
     );
   }
 }
