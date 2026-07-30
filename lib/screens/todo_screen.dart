@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class TodoScreen extends StatefulWidget {
@@ -8,6 +10,8 @@ class TodoScreen extends StatefulWidget {
 }
 
 class _TodoScreenState extends State<TodoScreen> {
+  TextEditingController txtTitle = TextEditingController();
+  List<String> tasks = [] ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +25,47 @@ class _TodoScreenState extends State<TodoScreen> {
         ),
         backgroundColor: Colors.deepPurpleAccent,
       ),
-      body:TextField(
-        decoration: InputDecoration(
-          hintText: "Enter title",
-          labelText: "Title"
-        ),
+      body:Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: txtTitle,
+                  decoration: InputDecoration(
+                    hintText: "Enter title",
+                    labelText: "Title",
+                  ),
+                ),
+              ),
+              IconButton(onPressed: (){
+                log(txtTitle.text);
+                if(txtTitle.text.isNotEmpty){
+                  tasks.add(txtTitle.text);
+                  txtTitle.text = "";
+                  setState(() {});
+
+                }
+
+               
+              }, icon: Icon(Icons.add))
+            ],
+          ),
+          Expanded(child: ListView.builder(itemBuilder: (context, index) => ListTile(
+            title: Text(tasks[index]),
+            trailing: IconButton(onPressed: () {
+              tasks.removeAt(index);
+              setState(() {});
+            }, 
+            icon: Icon(Icons.delete)),
+          ),
+          itemCount:tasks.length, 
+          ),
+          ), 
+        ],
       ),
+      
     );
+
   }
 }
