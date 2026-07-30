@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:second_app/models/task.dart';
+import 'package:second_app/models/task.dart';
 
 class TodoScreen extends StatefulWidget {
   const TodoScreen({super.key});
@@ -12,7 +14,8 @@ class TodoScreen extends StatefulWidget {
 class _TodoScreenState extends State<TodoScreen> {
   TextEditingController txtTitle = TextEditingController();
   int selIndx = -1;
-  List<String> tasks = [];
+  bool isDone= false;
+  List<Task> tasks = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +41,9 @@ class _TodoScreenState extends State<TodoScreen> {
                   log(txtTitle.text);
                   if (txtTitle.text.isNotEmpty) {
                    if(selIndx==-1)
-                    {tasks.add(txtTitle.text);}
+                    {tasks.add(Task(txtTitle.text,false));}
                     else{
-                      tasks[selIndx] = txtTitle.text;
+                      tasks[selIndx].title = txtTitle.text;
                       selIndx = -1;
                     }
                     txtTitle.text = "";
@@ -54,14 +57,21 @@ class _TodoScreenState extends State<TodoScreen> {
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) => ListTile(
-                title: Text(tasks[index]),
+                leading: Checkbox(
+                  value: tasks[index].isCompleted, onChanged: (v){
+                    tasks[index].isCompleted = v!;
+                    setState(() {
+                      
+                    });
+                  }),
+                title: Text(tasks[index].title),
                 trailing: SizedBox(
                   width: 100,
                   child: Row(
                     children: [
                       IconButton(
                         onPressed: () {
-                          txtTitle.text = tasks[index];
+                          txtTitle.text = tasks[index].title;
                           selIndx = index;
                           setState(() {});
                         },
