@@ -171,26 +171,24 @@
 //   }
 // }
 
+// import 'package:flutter/material.dart';
+// import 'package:second_app/stopwatch/loginscreen.dart';
 
-import 'package:flutter/material.dart';
-import 'package:second_app/stopwatch/stopwatchexample.dart';
+// void main() {
+//   runApp(const StopwatchExample());
+// }
 
-void main() {
-  runApp(const StopwatchExample());
-}
+// class StopwatchExample extends StatelessWidget {
+//   const StopwatchExample({super.key});
 
-class StopwatchExample extends StatelessWidget {
-  const StopwatchExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyStopWatch(),
-    );
-  }
-}
-
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: loginwidget(),
+//     );
+//   }
+// }
 
 // import 'package:flutter/material.dart';
 // import 'package:second_app/screens/todo_screen.dart';
@@ -210,3 +208,25 @@ class StopwatchExample extends StatelessWidget {
 //     );
 //   }
 // }
+
+
+
+
+import 'package:flutter/material.dart';
+import 'controls/inputcontrol.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: TextBoxDemo(),
+    );
+  }
+}
