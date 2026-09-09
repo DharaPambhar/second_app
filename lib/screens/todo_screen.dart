@@ -5,7 +5,7 @@ import 'package:second_app/models/task.dart';
 import 'package:second_app/models/task.dart';
 
 class TodoScreen extends StatefulWidget {
-  const TodoScreen({super.key});
+  const TodoScreen({super.key}); 
 
   @override
   State<TodoScreen> createState() => _TodoScreenState();
