@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class RadioExample extends StatefulWidget {
   const RadioExample({super.key});
 
-  @override
+  @override 
   State<RadioExample> createState() => _RadioExampleState();
 }
 
@@ -28,7 +28,7 @@ class _RadioExampleState extends State<RadioExample> {
               title: const Text('Male'),
               value: 'Male',
               groupValue: gender,
-              onChanged: (value) {
+              onChanged: (value) { 
                 setState(() {
                   if (value != null) {
                     gender = value;
