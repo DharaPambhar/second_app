@@ -15,7 +15,7 @@ class _RadioExampleState extends State<RadioExample> {
       gender = 'Female';
     });
   }
-
+  
   @override 
   Widget build(BuildContext context) {
     return Scaffold(
